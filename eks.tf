@@ -107,6 +107,15 @@ resource "aws_iam_role_policy_attachment" "example-AmazonEC2ContainerRegistryRea
   role       = aws_iam_role.example1.name
 }
 
+
+resource "aws_iam_role_policy_attachment" "example-custom-policy" {
+  policy_arn = "arn:aws:iam::aws:policy/AmazonEKSWorkerNodePolicy"  # Customized policy ARN
+  role       = aws_iam_role.example1.name
+
+  # Add more policies as needed
+}
+
+
 #create node group
 resource "aws_eks_node_group" "example" {
   cluster_name    = aws_eks_cluster.example.name
