@@ -102,18 +102,18 @@ resource "aws_iam_role_policy_attachment" "example-AmazonEKS_CNI_Policy" {
   role       = aws_iam_role.example1.name
 }
 
-#resource "aws_iam_role_policy_attachment" "example-AmazonEC2ContainerRegistryReadOnly" {
-  #policy_arn = "arn:aws:iam::aws:policy/AmazonEC2ContainerRegistryReadOnly"
- # role       = aws_iam_role.example1.name
-#}
+resource "aws_iam_role_policy_attachment" "example-AmazonEC2ContainerRegistryReadOnly" {
+  policy_arn = "arn:aws:iam::aws:policy/AmazonEC2ContainerRegistryReadOnly"
+  role       = aws_iam_role.example1.name
+}
 
 
-#resource "aws_iam_role_policy_attachment" "example-custom-policy" {
- # policy_arn = "arn:aws:iam::aws:policy/AmazonEKSWorkerNodePolicy"  # Customized policy ARN
-#  role       = aws_iam_role.example1.name
+resource "aws_iam_role_policy_attachment" "example-custom-policy" {
+  policy_arn = "arn:aws:iam::aws:policy/AmazonEKSWorkerNodePolicy"  # Customized policy ARN
+  role       = aws_iam_role.example1.name
 
   # Add more policies as needed
-#}
+}
 
 
 #create node group
