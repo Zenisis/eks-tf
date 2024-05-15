@@ -63,7 +63,7 @@ data "aws_subnets" "public" {
 }
 #cluster provision
 resource "aws_eks_cluster" "example" {
-  name     = "MY_CLOUD"
+  name     = "mycloud444"
   role_arn = aws_iam_role.example.arn
 
   vpc_config {
@@ -119,7 +119,7 @@ resource "aws_iam_role_policy_attachment" "example-custom-policy" {
 #create node group
 resource "aws_eks_node_group" "example" {
   cluster_name    = aws_eks_cluster.example.name
-  node_group_name = "MY_CLOUD"
+  node_group_name = "mycloud444"
   node_role_arn   = aws_iam_role.example1.arn
   subnet_ids      = data.aws_subnets.public.ids
 
